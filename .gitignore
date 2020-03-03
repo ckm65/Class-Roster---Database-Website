@@ -8,9 +8,9 @@ composer.phar
 # composer.lock
 
 ### Ignore development databases.
-# DO NOT REMOVE THIS! Development database should not be checked-in to revision control.
-*.sqlite
-*.db
+# # DO NOT REMOVE THIS! Development database should not be checked-in to revision control.
+# *.sqlite
+# *.db
 
 # OS generated files #
 ######################
