@@ -1,6 +1,6 @@
 <?php
 include("includes/init.php");
-$header_nav_class = "current_page";
+$header_nav_class5 = "current_page";
 
 // open connection to database
 $db = open_sqlite_db("secure/catalog.sqlite");
@@ -33,7 +33,6 @@ function print_record($record)
     <link rel="stylesheet" type="text/css" href="styles/theme.css" media="screen" />
 </head>
 
-
 <body>
 <?php
 include("includes/header.php");
@@ -42,16 +41,18 @@ $header_nav_class = "current_page";
 ?>
 
 
+
   <main>
     <h2><?php echo $title; ?></h2>
     <p>Welcome to Cornell University Information Science Course Catalog!</p>
     <?php
-    $sql = "SELECT * FROM catalog;";
+    $sql = "SELECT * FROM catalog WHERE requirement_fufilled = 'Core';";
     $result = exec_sql_query($db, $sql);
     $records = $result->fetchAll();
     ?>
 
     <!-- TODO: execute SQL query -->
+
 
     <table>
       <tr>
@@ -60,7 +61,6 @@ $header_nav_class = "current_page";
         <th>Course Description</th>
         <th>Term</th>
         <th>Professor</th>
-        <th>Time</th>
         <th>Credits</th>
         <th>Requirement Fufilled</th>
       </tr>

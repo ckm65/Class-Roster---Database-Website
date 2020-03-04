@@ -33,20 +33,47 @@ The UNCONN catalog was unique but I think that the design is not very efficient.
 
 ## Design Process (Milestone 2)
 > Document your design process. Show us the evolution of your design from your first idea (sketch) to design you wish to implement (sketch). Show us the process you used to organize content and plan the navigation, if applicable.
-> Label all images. All labels must be visible in VS Code's Markdown Preview.
-> Clearly label the final design.
+![Brainstorm](brainstorm.jpeg)
+This image is brainstorming the different categories needed to display all information to my target audience. I circuled the key idea that were necessary to reflect my catalog efficienctly and effectively. Furthermore, I brainstormed a couple of design outlines of how I wanted to format my catalog.
 
+![Design Iteration 1 page](designiteration_1page.jpeg)
+This image shows a website that contains the databse all on one page. It would just be a really long list of 26 items but nothing would be organized making it a lot of work for the user to find what they are looking for.
+
+![Design Iteration multiple page](multiplepages.jpeg)
+This image looks at different design iterations of how I want my final website to look like with the different navigation bar for the categories. I decided to split my navigation bar my different requirements needed to fufill that major. I was playing around with the format of the requirements in my iteration.
+
+![Design Iteration multiple page](finaldesign.jpeg)
+The final design includes a multiple page website about the course catalog for Cornell University Information Science majors. It contains a header partial with all courses, core courses, math requirements, concentration requirements and electives. It then contains a database with various fields regarding each course. Secondly, my website has a footer containing the location/ address of the undergraduate building as well as the major email for furture contact.
 
 ## Partials (Milestone 2)
-> If you have any partials, plan them here.
+I am going to create a head that includes the navigation bar as a partial!This will easily help others navigate through the page.
+
+I am going to add a footer partial that includes the overall information science contact email. This will be helpful for others who are looking to contact someone based on the catalog classes.
 
 
 ## Database Schema (Milestone 2)
 > Describe the structure of your database. You may use words or a picture. A bulleted list is probably the simplest way to do this. Make sure you include constraints for each field.
+CREATE TABLE "catalog" (
+	"course_number"	INTEGER NOT NULL,
+	"course_name"	TEXT NOT NULL,
+	"course_description"	TEXT NOT NULL,
+	"term"	TEXT NOT NULL,
+	"professor"	TEXT NOT NULL,
+	"time"	TEXT NOT NULL,
+	"credits"	INTEGER NOT NULL,
+	"requirement_fufilled"	TEXT NOT NULL,
+	PRIMARY KEY("course_number")
+);
 
-Table: movies
-- field 1: description..., constraints...
-- field...
+Table: catalog
+- Course Number: the number of the course... is a primary key integer and is not null
+- Course Name: the name of the course .... is a text field and is not null
+- Course Description: A couple sentence description on the course... is a text field and is not null
+- Term: state which semester/term the course is offered... is a text field and is not null
+- Profesor: name of the professor .... text field and is not null
+- Time: the time that the class meets at ... text field and is not null
+- Credits: the amount of credits the class is .... text field and is not null
+- Requirement Fufilled: what the class satisfies or fufills as an information science requirement ... text field and is not null
 
 
 ## Database Query Plan (Milestone 2)
@@ -55,25 +82,33 @@ Table: movies
 1. All records
 
     ```
-    TODO
+    SELECT * FROM catalog;
     ```
+2. Selecting Records for each page
+'''
+SELECT * FROM catalog WHERE requirement_fufilled = "Math";
+SELECT * FROM catalog WHERE requirement_fufilled = "Core";
+SELECT * FROM catalog WHERE requirement_fufilled = "Elective";
+SELECT * FROM catalog WHERE requirement_fufilled = "Concentration";
+'''
 
-2. Search records
-
-    ```
-    TODO
-    ```
 
 3. Insert record
 
     ```
-    TODO
-    ```
+      <?php
+      foreach($records as $record) {
+  print_record($record);
+}
+  ?>
+
+   ```
+
 
 
 ## Code Planning (Milestone 2)
 > Plan any PHP code you'll need here.
-
+The php code I will use is to echo out the variables in the specific table along with the information necessary for my partials. I will also use php to open the specific databse and make sure that all the values in my catalog are secure and not subjected to any threats or hacks. Furthermore, I will use PHP to run specific SQL queries that will display the necesseary data on the correct/specific pages based on requirement fufillment.
 
 # Reflection (Final Submission)
 > Take this time to reflect on what you learned during this assignment. How have you improved since Project 1? What things did you have trouble with?

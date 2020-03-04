@@ -1,6 +1,6 @@
 <?php
 include("includes/init.php");
-$header_nav_class = "current_page";
+$header_nav_class3 = "current_page";
 
 // open connection to database
 $db = open_sqlite_db("secure/catalog.sqlite");
@@ -41,12 +41,11 @@ $header_nav_class = "current_page";
 
 ?>
 
-
   <main>
     <h2><?php echo $title; ?></h2>
     <p>Welcome to Cornell University Information Science Course Catalog!</p>
     <?php
-    $sql = "SELECT * FROM catalog;";
+    $sql = "SELECT * FROM catalog WHERE requirement_fufilled = 'Elective';";
     $result = exec_sql_query($db, $sql);
     $records = $result->fetchAll();
     ?>
