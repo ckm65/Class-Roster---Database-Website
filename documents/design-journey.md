@@ -42,11 +42,10 @@ This image shows a website that contains the databse all on one page. It would j
 ![Design Iteration multiple page](multiplepages.jpeg)
 This image looks at different design iterations of how I want my final website to look like with the different navigation bar for the categories. I decided to split my navigation bar my different requirements needed to fufill that major. I was playing around with the format of the requirements in my iteration.
 
-![Design Iteration multiple page](finaldesign.jpeg)
-The final design includes a multiple page website about the course catalog for Cornell University Information Science majors. It contains a header partial with all courses, core courses, math requirements, concentration requirements and electives. It then contains a database with various fields regarding each course. Secondly, my website has a footer containing the location/ address of the undergraduate building as well as the major email for furture contact.
-
+![Final Design ](finaldesign.jpeg)
+The final design includes a single page website with a footer along with a serach field to view the catalog by ratings, term , time, credits or requirements fufilled. Furthermore, there is an option to add a course to the catalog and all fields will be required.
 ## Partials (Milestone 2)
-I am going to create a head that includes the navigation bar as a partial!This will easily help others navigate through the page.
+
 
 I am going to add a footer partial that includes the overall information science contact email. This will be helpful for others who are looking to contact someone based on the catalog classes.
 
@@ -92,23 +91,27 @@ SELECT * FROM catalog WHERE requirement_fufilled = "Elective";
 SELECT * FROM catalog WHERE requirement_fufilled = "Concentration";
 '''
 
-
-3. Insert record
-
-    ```
-      <?php
-      foreach($records as $record) {
-  print_record($record);
-}
-  ?>
-
+ 4. Search Record
+  ```
+ SELECT *  FROM catalog where credits == '4';
    ```
 
+3. Insert Record
 
+    ```
+"INSERT INTO catalog(course_number, course_name, course_description, course_rating, term, professor, time, credits, requirement_fufilled) VALUES (:value1,:value2,:value3,:value4,:value5,:value6,:value7,:value8,:value9);";
+
+   ```
+);
 
 ## Code Planning (Milestone 2)
 > Plan any PHP code you'll need here.
 The php code I will use is to echo out the variables in the specific table along with the information necessary for my partials. I will also use php to open the specific databse and make sure that all the values in my catalog are secure and not subjected to any threats or hacks. Furthermore, I will use PHP to run specific SQL queries that will display the necesseary data on the correct/specific pages based on requirement fufillment.
 
+- function is search records
+- also ratings function is a function created to give star ratings instead of using multiple lines of code
+
 # Reflection (Final Submission)
 > Take this time to reflect on what you learned during this assignment. How have you improved since Project 1? What things did you have trouble with?
+
+I have defintely learned a lot since project 1. I think I really improved on debugging my code and being able to problem solve especially with small syntax errors. I thoguht this project was a lot mroe complex and challenging than project 1 but I feel that I have definitely learned a lot. It is cool to really see the hard work and process that back-end developers to through in order to make code more simplified and concise. I strugggled with creating my own functions. I thought it was really challenging to make a new function that was benefical or had some significance to the project. Furthermore, I found it challenging and time consuming to make sure that I utilized what I learned from project 1 and then implement it again in project 2. For example, making sure that everything is filtered. However, the labs really help me a lot during this project. Sometimes I get confused in my code because it is a little long or I have trouble finding things especially making sure all the variable names match up! I hope you enjoed my project!

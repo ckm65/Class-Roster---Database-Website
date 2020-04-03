@@ -2,10 +2,15 @@ h1 {
     color: black;
     padding-left:100px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 35px;
+    font-size: 40px;
     text-decoration: navy underline overline;
     margin:auto;
     display:block;
+  }
+  p {
+    font-size: 20px;
+    text-align: left;
+    color:navy;
   }
 nav {
     display:inline-block;
@@ -54,10 +59,18 @@ nav li {
     border:3px dotted navy;
     padding: 4px;
   }
+
   footer {
     padding: 3px 3px;
     background-size: contain;
     text-align: center;
+    background-color: lightskyblue;
+  }
+  h5 {
+    padding: 3px 3px;
+    background-size: contain;
+    text-align: center;
+    font-size: 14px;
     background-color: lightskyblue;
   }
 
@@ -75,4 +88,21 @@ nav li {
 
   tr:nth-child(even) {
     background: lightsteelblue;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    padding:5px
+  }
+
+  .form > :first-child {
+    width: 15%;
+    text-align: left;
+    margin-right: 0px;
+  }
+  h2  {
+    color:navy;
+    background-color:lightgrey;
   }
